@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Height Collecting</title>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="main">
+        <!-- Fill form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Fill in</h2>
+                        <div>{{text|safe}}</div>
+                        <form action="{{url_for('success')}}" method="POST" class="form-form" id="register-form">
+                            <div class="form-group">
+                                <input type="text" name="name_name"  placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email_name"  placeholder="Your Email" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="age_name"  placeholder="You age" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" min="50" max="300" name="height_name" placeholder="Your Height in cm" required/>
+                            </div>
+                            <div class=" form-button">
+                                <button type="submit"  class="form-submit">
+                                    Sumbit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img
+                                src="data:image/png;base64,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"
+                                alt="Error image doesnt load">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+<!-- Example -->
+<!--            <form action="{{url_for('success')}}" method="POST" >-->
+<!--                <input title ="Your email will be safe with us"-->
+<!--                placeholder="Enter your email address"-->
+<!--                type="email"-->
+<!--                name ="email_name"-->
+<!--                required>-->
+<!--                <input title ="Your email will be safe with us"-->
+<!--                placeholder="Enter ur height in cm"-->
+<!--                type="number"-->
+<!--                       min="50"-->
+<!--                       max="300"-->
+<!--                name ="height_name"-->
+<!--                required>-->
+<!--                <button type="submit">Submit</button>-->
+<!--            </form>-->
